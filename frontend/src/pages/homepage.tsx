@@ -19,7 +19,7 @@ function ShowData() {
     const [posts, setPosts] = useRecoilStateLoadable(postsAtom);
 
    useEffect(() => {
-    const eventSource = new EventSource("http://localhost:3000/sse");
+    const eventSource = new EventSource(`${import.meta.env.VITE_SERVER_ADDRESS}sse/`);
 
     eventSource.addEventListener("update", (event) => {
         const data = JSON.parse(event.data);

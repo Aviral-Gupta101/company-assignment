@@ -18,7 +18,7 @@ export const postsAtom = atom<Post[]>({
         get: async ({ }) => {
 
             // await new Promise((r) => { setTimeout(r, 1000) });
-            const res = await axios.get("http://localhost:3000/post/");            
+            const res = await axios.get(`${import.meta.env.VITE_SERVER_ADDRESS}post/`);            
             return res.data.posts;
         }
     })
