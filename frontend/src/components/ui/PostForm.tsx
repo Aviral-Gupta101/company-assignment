@@ -50,7 +50,7 @@ export function PostForm() {
 
     try {
       setIsLoading(true)
-      await axios.post("http://localhost:3000/post/create", {
+      await axios.post(`${import.meta.env.VITE_SERVER_ADDRESS}post/create`, {
         title: values.title,
         description: values.description
       });
