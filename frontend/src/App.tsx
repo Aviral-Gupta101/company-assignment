@@ -5,10 +5,6 @@ import { RecoilRoot } from "recoil"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer"
 
-
-console.log(import.meta.env.VITE_SERVER_ADDRESS);
-
-
 function App() {
 
 

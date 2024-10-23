@@ -1,0 +1,35 @@
+name: myapp
+
+services:
+  backend:
+    build: ./backend
+    image: backend:0.1
+    env_file:
+      - path: "./backend/.env"
+        required: true 
+    ports:
+      - "3000:3000"
+    container_name: backend
+    networks:
+      - compose-network
+    mem_limit: 300m
+    memswap_limit: 300m
+
+  frontend:
+  
+    build: ./frontend
+    image: frontend:0.1
+    ports:
+      - "3001:3001"
+    container_name: frontend
+    networks:
+      - compose-network
+    mem_limit: 600m
+    memswap_limit: 1g
+    depends_on:
+      - backend
+    
+
+networks:
+  compose-network: 
+ 
